@@ -2,12 +2,12 @@ require("./database/module")
 
 //GLOBAL PAYMENT
 global.storename = "STINGER-V4"
-global.dana = "2349037524605"
+global.dana = "2347047787798"
 global.qris = "https://i.ibb.co/BnYRXcw/STINGER-V4.jpg"
 
 
 // GLOBAL SETTING
-global.owner = "2349037524605"
+global.owner = "2347047787798"
 global.namabot = " S҉ T҉ I҉ N҉ G҉ E҉ R҉- V҉ 4҉"
 global.nomorbot = "2349037524605"
 global.namaCreator = "ES TEAMS"
