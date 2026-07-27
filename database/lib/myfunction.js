@@ -4,7 +4,7 @@
    * Follow https://github.com/paskito002
 */
 
-const { proto, delay, getContentType } = require('@whiskeysockets/baileys')
+const { proto, delay, getContentType } = require('baileys')
 const chalk = require('chalk')
 const fs = require('fs')
 const Crypto = require('crypto')

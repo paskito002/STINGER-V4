@@ -13,7 +13,7 @@
     "@adiwajshing/keyed-db": "^0.2.4",
     "awesome-phonenumber": "^2.64.0",
     "axios": "^0.24.0",
-    "baileys": "npm:@whiskeysockets/baileys@^6.7.7",
+    "baileys": "npm:@whiskeysockets/baileys@^6.7.23",
     "canvas-hikki": "github:KirBotz/canvas-hikki",
     "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.10",
