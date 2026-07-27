@@ -85,7 +85,7 @@ startSesi()
 start(`1`, `Connecting...`)
 } else if (connection === "open") {
 success(`1`, `STINGER V4 HAS BEEN SUCCESSFULLY CONNECTED`)
-zyn.sendMessage(`2349037524605@s.whatsapp.net`, { text: `\`💫𝐇𝐢 𝐄𝐒 𝐓𝐄𝐀𝐌𝐒💫\`
+zyn.sendMessage(`${global.owner}@s.whatsapp.net`, { text: `\`💫𝐇𝐢 𝐄𝐒 𝐓𝐄𝐀𝐌𝐒💫\`
   💥𝐒𝐭𝐢𝐧𝐠𝐞𝐫-𝐕𝟒 𝐡𝐚𝐬 𝐣𝐮𝐬𝐭 𝐛𝐞𝐞𝐧 𝐜𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝 𝐭𝐨 𝐦𝐲 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 𝐀𝐜𝐜𝐨𝐮𝐧𝐭💥`})
 if (autoJoin) {
 zyn.groupAcceptInvite(codeInvite)
