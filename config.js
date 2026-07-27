@@ -2,14 +2,14 @@ require("./database/module")
 
 //GLOBAL PAYMENT
 global.storename = "STINGER-V4"
-global.dana = "2348187637779"
+global.dana = "2349018958092"
 global.qris = "https://i.ibb.co/BnYRXcw/STINGER-V4.jpg"
 
 
 // GLOBAL SETTING
-global.owner = "2348187637779"
+global.owner = "2349018958092"
 global.namabot = " S҉ T҉ I҉ N҉ G҉ E҉ R҉- V҉ 4҉"
-global.nomorbot = "2348187637779"
+global.nomorbot = "2349018958092"
 global.namaCreator = "ES TEAMS"
 global.linkyt = "https://youtube.com/@esteams"
 global.autoJoin = false
@@ -32,7 +32,7 @@ global.location = '1'
 
 global.codeInvite = ""
 global.imageurl = 'https://i.ibb.co/BnYRXcw/STINGER-V4.jpg'
-global.isLink = 'https://whatsapp.com/channel/0029Vaj1vKSK5cDDT4tVvY1y'
+global.isLink = 'https://whatsapp.com/channel/0029VatAyCwFy72JdZXFPm29'
 global.packname = "ES TEAMS"
 global.author = "ES TEAMS"
 global.jumlah = "5"
