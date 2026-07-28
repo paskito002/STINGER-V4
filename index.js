@@ -17,6 +17,7 @@
 require("./database/global")
 
 const func = require("./database/place")
+const http = require("http")
 const readline = require("readline");
 const usePairingCode = true
 const question = (text) => {
@@ -28,6 +29,18 @@ output: process.stdout
 rl.question(text, resolve)
   })
 };
+
+const PORT = process.env.PORT || 3000
+http.createServer((req, res) => {
+res.writeHead(200, { "Content-Type": "text/plain" })
+res.end("STINGER-V4 is running")
+}).listen(PORT, () => console.log(chalk.green(`Keep-alive server listening on port ${PORT}`)))
+
+if (process.env.SELF_URL) {
+setInterval(() => {
+axios.get(process.env.SELF_URL).catch(() => {})
+}, 10 * 60 * 1000)
+}
 
 async function startSesi() {
 const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
@@ -45,7 +58,9 @@ browser: [ "Ubuntu", "Chrome", "20.0.04" ]
 }
 const zyn = func.makeWASocket(connectionOptions)
 if(usePairingCode && !zyn.authState.creds.registered) {
-		const phoneNumber = await question(chalk.green('\nEs Teams said you should Enter Your Number\nNumber : '));
+		const phoneNumber = process.env.PHONE_NUMBER
+			? process.env.PHONE_NUMBER.trim()
+			: await question(chalk.green('\nEs Teams said you should Enter Your Number\nNumber : '));
 		const code = await zyn.requestPairingCode(phoneNumber.trim())
 		console.log(chalk.green(`Stinger-V4 Pairing Code : ${code} `))
 
