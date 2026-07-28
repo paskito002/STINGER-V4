@@ -3064,6 +3064,15 @@ module.exports = async (sock, m, store) => {
     sock.sendMessage(owner + "@s.whatsapp.net", {
       text: "" + util.format(_0x1f12e6)
     });
+    try {
+      await sock.sendMessage(m.chat, {
+        react: {
+          text: "❌",
+          key: m.key
+        }
+      });
+      await m.reply("❌ Something went wrong processing that command.");
+    } catch (_0x1f12e7) {}
   }
 };
 let file = require.resolve(__filename);
