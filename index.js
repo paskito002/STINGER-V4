@@ -34,6 +34,12 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 const resetSession = () => {
 try { fs.rmSync('./session', { recursive: true, force: true }) } catch (e) {}
 }
+// Baileys closes the socket (restartRequired) right after a successful pairing-code
+// registration, and the reconnect below re-enters this function. This flag survives
+// that reconnect so we don't request a second, different code while the first one is
+// still waiting to be entered -- requesting a new code invalidates the old one, which
+// made the code shown to the user stop working moments after it was generated.
+let pairingCodeRequested = false
 
 const PORT = process.env.PORT || 3000
 http.createServer((req, res) => {
@@ -57,27 +63,43 @@ version,
 keepAliveIntervalMs: 30000,
 printQRInTerminal: !usePairingCode,
 logger: pino({ level: "fatal" }),
-auth: state,
-browser: Browsers.ubuntu('Chrome')
+auth: {
+creds: state.creds,
+keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }))
+},
+browser: Browsers.ubuntu('Chrome'),
+getMessage: async (key) => {
+return store.loadMessage(key.remoteJid, key.id)?.message || undefined
+}
 }
 const zyn = func.makeWASocket(connectionOptions)
 store.bind(zyn.ev)
 zyn.ev.on('creds.update', saveCreds)
 
-if(usePairingCode && !zyn.authState.creds.registered) {
+if(usePairingCode && !zyn.authState.creds.registered && !pairingCodeRequested) {
+		pairingCodeRequested = true
 		const rawNumber = process.env.PHONE_NUMBER
 			? process.env.PHONE_NUMBER
 			: await question(chalk.green('\nEs Teams said you should Enter Your Number\nNumber : '));
 		const phoneNumber = rawNumber.replace(/[^0-9]/g, '')
 		await sleep(5000)
-		const code = await zyn.requestPairingCode(phoneNumber)
-		console.log(chalk.green(`Stinger-V4 Pairing Code : ${code} `))
+		try {
+			const code = await zyn.requestPairingCode(phoneNumber)
+			console.log(chalk.green(`Stinger-V4 Pairing Code : ${code} `))
+		} catch (e) {
+			console.log(color(`Failed to request pairing code: ${e.message || e}`, 'deeppink'))
+			pairingCodeRequested = false
+		}
 
 	}
 
 zyn.ev.on('connection.update', async (update) => {
 const { connection, lastDisconnect } = update
 if (connection === 'close') {
+// Whatever pairing code was issued before this disconnect clearly didn't result in a
+// successful link (expired, unused, or rejected) -- allow the next attempt to request
+// a fresh one instead of silently reconnecting forever with a code that can't work.
+if (!zyn.authState.creds.registered) pairingCodeRequested = false
 const reason = new Boom(lastDisconnect?.error)?.output.statusCode
 console.log(color(lastDisconnect.error, 'deeppink'))
 if (reason === DisconnectReason.badSession || reason === DisconnectReason.loggedOut) {
