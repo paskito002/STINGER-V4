@@ -44,15 +44,11 @@ module.exports = async (sock, m, store) => {
     const {
       mediafireDl: mediafireDl
     } = require("./database/dtbs/mediafire.js");
-    let saldoData = JSON.parse(fs.readFileSync("./database/dtbs/saldo.json"));
     const {
       beta1: beta1,
       beta2: beta2,
       buk1: buk1
     } = require("./database/lib/hdr.js");
-    const esteamsImage = fs.readFileSync("./database/image/ES_TEAMS.jpg");
-    const stingerImage = fs.readFileSync("./database/image/STINGER-V4.jpg");
-    const paschalImage = fs.readFileSync("./database/image/PASCHAL.png");
     const processingText = "𝐒𝐓𝐈𝐍𝐆𝐄𝐑-𝐕𝟒 𝐈𝐍 𝐏𝐑𝐎𝐂𝐄𝐒𝐒";
     const {
       ios: ios
@@ -442,21 +438,6 @@ module.exports = async (sock, m, store) => {
         return;
       }
     }
-    async function _0x5c0243() {
-      var _0xb839f5 = ["> ❄️S❄️", "> ❄️ST❄️", "> ❄️STI❄️", "> ❄️STIN❄️", "> ❄️STING❄️", "> ❄️STINGE❄️", "> ❄️STINGER❄️"];
-      let {
-        key: _0x10ee50
-      } = await sock.sendMessage(from, {
-        text: " S҉"
-      });
-      for (let _0x489eac = 0; _0x489eac < _0xb839f5.length; _0x489eac++) {
-        const _0x44930b = {
-          text: _0xb839f5[_0x489eac],
-          edit: _0x10ee50
-        };
-        await sock.sendMessage(from, _0x44930b);
-      }
-    }
     const _0x63f1cc = await reSize(ppuser, 300, 300);
     const _0x1bee92 = async (_0x468e05, _0xbd8e15, _0x5db132, _0xe353c9, _0x41222b, _0x1d3bbb, _0x292e1f, _0x5c5bb1, _0x188d31) => {
       const _0x16fbd5 = generateWAMessageFromContent(_0x468e05, proto.Message.fromObject({
@@ -551,7 +532,6 @@ module.exports = async (sock, m, store) => {
               key: m.key
             }
           });
-          _0x5c0243().catch(() => {});
           const _0x564031 = fs.readFileSync("./database/ES_TEAMS.mp3");
           const _0x477baa = require("baileys/package.json").version;
           const _0x413632 = "╭━━━━━━❄️◁️🕷️ S҉T҉I҉N҉G҉E҉R҉- V҉ 4҉━━━━━━╮\n┃❁️ _ᴏᴡɴᴇʀ:_ ᴇꜱ ᴛᴇᴀᴍꜱ ᴛᴇᴄʜ🚀👽\n┃❁️ _ᴠᴇʀꜱɪᴏɴ:_ " + versisc + " 🔝💻\n┃❁️ _ᴍᴏᴅᴇʟ:_ " + namabot + " 🤖💸\n┃❁️ _ᴜᴘᴛɪᴍᴇ:_ " + runtime(process.uptime()) + " ⏰🔋\n╰━━━━━━❄️◁️🕷️━━━━━━╯\n╰⭑➤➤⭑➤➤⭑➤ ᴏᴡɴᴇʀ ᴍᴇɴᴜ\n> 𝐚𝐝𝐝-𝐬𝐭𝐢𝐧𝐠 ◁️❄️🕷️\n> 𝐚𝐝𝐝𝐩𝐫𝐞𝐦 ◁️❄️🕷️\n> 𝐝𝐞𝐥𝐨𝐰𝐧𝐞𝐫 ◁️❄️🕷️\n> 𝐝𝐞𝐥𝐩𝐫𝐞𝐦 ◁️❄️🕷️\n> 𝐬𝐞𝐭-𝐬𝐭𝐢𝐧𝐠 ◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤ ꜱᴛɪɴɢᴇʀ ᴛᴏᴏʟꜱ\n> 𝐞𝐧𝐜 [ 𝐜𝐨𝐝𝐞 ]◁️❄️🕷️\n> 𝐞𝐧𝐜𝐫𝐲𝐩𝐭 [ 𝐜𝐨𝐝𝐞 ]◁️❄️🕷️\n> 𝐚𝐢 [ 𝐭𝐞𝐱𝐭 ]◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤ ꜱᴛɪɴɢᴇʀ ɢʀᴏᴜᴘ\n> 𝐡𝐢𝐝𝐞𝐭𝐚𝐠 ◁️❄️🕷️\n> 𝐭𝐚𝐠𝐚𝐥𝐥 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐤𝐢𝐜𝐤 ◁️❄️🕷️\n> 𝐩𝐫𝐨𝐦𝐨𝐭𝐞 ◁️❄️🕷️\n> 𝐝𝐞𝐦𝐨𝐭𝐞 ◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤ ꜱᴛɪɴɢᴇʀ ꜱᴛᴏʀᴇ\n> 𝐩𝐚𝐲𝐦𝐞𝐧𝐭 ◁️❄️🕷️\n> 𝐝𝐚𝐧𝐚𝐦𝐚𝐬𝐮𝐤 ◁️❄️🕷️\n> 𝐩𝐫𝐨𝐬𝐞𝐬 ◁️❄️🕷️\n> 𝐝𝐨𝐧𝐞 ◁️❄️🕷️\n> 𝐣𝐩𝐦𝐩𝐫𝐨𝐦𝐨𝐬𝐢 ◁️❄️🕷️\n> 𝐣𝐩𝐦𝟑 ◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤ ꜱᴛɪɴɢᴇʀ ᴘᴀɴᴇʟ\n> 𝟏𝐆𝐁 ◁️❄️🕷️\n> 𝟐𝐆𝐁 ◁️❄️🕷️\n> 𝟑𝐆𝐁 ◁️❄️🕷️\n> 𝟒𝐆𝐁 ◁️❄️🕷️\n> 𝟓𝐆𝐁 ◁️❄️🕷️\n> 𝟔𝐆𝐁 ◁️❄️🕷️\n> 𝟕𝐆𝐁 ◁️❄️🕷️\n> 𝟖𝐆𝐁 ◁️❄️🕷️\n> 𝟗𝐆𝐁 ◁️❄️🕷️\n> 𝐮𝐧𝐥𝐢 ◁️❄️🕷️\n> 𝐥𝐢𝐬𝐭𝐬𝐫𝐯 ◁️❄️🕷️\n> 𝐝𝐞𝐥𝐬𝐫𝐯 ◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤  ᴄᴏᴜʀꜱᴇ ʙᴜɢ\n> 𝐬𝐭𝐢𝐧𝐠𝐞𝐫-𝐛𝐥𝐚𝐬𝐭 [ 𝐧𝐮𝐦𝐛𝐞𝐫 ] ◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤ ᴀᴛᴛᴀᴄᴋ ʙᴜɢ\n> 𝐬𝐭𝐢𝐧𝐠𝐞𝐫-𝐯𝟐 [ 𝐧𝐮𝐦𝐛𝐞𝐫 ] ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐬𝐥𝐢𝐝𝐞 [ 𝐧𝐮𝐦𝐛𝐞𝐫 ] ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐟𝐫𝐞𝐞𝐳𝐞 [ 𝐧𝐮𝐦𝐛𝐞𝐫 ] ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐦𝐞𝐝𝐢𝐮𝐦 [ 𝐧𝐮𝐦𝐛𝐞𝐫 ] ◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤ ᴀᴛᴛᴀᴄᴋ ᴏᴛʜᴇʀ\n> 𝐬𝐭𝐢𝐧𝐠-𝐢𝐨𝐬 [ 𝐧𝐮𝐦𝐛𝐞𝐫] ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐜𝐫𝐚𝐬𝐡 [𝐧𝐮𝐦𝐛𝐞𝐫] ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐚𝐭𝐤 [𝐧𝐮𝐦𝐛𝐞𝐫] ◁️❄️🕷️\n\n⭑➤➤⭑➤➤⭑➤ ꜱᴛɪɴɢᴇʀ ᴀɴᴛɪʙᴜɢ \n> 𝐬𝐭𝐢𝐧𝐠-𝐨𝐧 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐨𝐟𝐟 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐩𝐚𝐲 ◁️❄️🕷️\n> 𝐜𝐨𝐧𝐟𝐢𝐫𝐦-𝐩𝐚𝐲 ◁️❄️🕷\n\n╰⭑➤➤⭑➤➤⭑➤  ꜱᴛɪɴɢᴇʀ ʙᴀɴɴᴇʀ +\n> 𝐬𝐭𝐢𝐧𝐠-𝐛𝐚𝐧◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐛𝐚𝐧𝟐 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐛𝐚𝐧𝟑◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐛𝐚𝐧𝟒◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤  ꜱᴛɪɴɢᴇʀ ʟᴏᴄᴋ\n> 𝐬𝐭𝐢𝐧𝐠-𝐥𝐨𝐜𝐤 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐮𝐧𝐥𝐨𝐜𝐤 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐫𝐞𝐬𝐞𝐭 ◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤ ꜱᴛɪɴɢᴇʀ ᴛᴏᴏʟꜱ +\n> 𝐦𝐞𝐧𝐮 ◁️❄️🕷️\n> 𝐭𝐞𝐬𝐭 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐮𝐩𝐝𝐚𝐭𝐞 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐚𝐢 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐚𝐧𝐢𝐦𝐞 ◁️❄️🕷️\n> 𝐫𝐮𝐧𝐭𝐢𝐦𝐞 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐢𝐩 ◁️❄️🕷\n> 𝐬𝐭𝐢𝐧𝐠-𝐱𝐱𝐱 ◁️❄️🕷️\n> 𝐦𝐞𝐝𝐢𝐚𝐟𝐢𝐫𝐞 ◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤ ᴘʀᴇᴍɪᴜᴍ ᴘᴀʏᴍᴇɴᴛ\n> 𝐬𝐭𝐢𝐧𝐠-𝐩𝐚𝐲 ◁️❄️🕷️\n> 𝐜𝐨𝐧𝐟𝐢𝐫𝐦-𝐩𝐚𝐲 ◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤  ꜱᴛɪɴɢᴇʀ ɢʀᴏᴜᴘ +\n> 𝐩𝐫𝐨𝐦𝐨𝐭𝐞 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐬𝐚𝐯𝐞 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐝𝐞𝐥 ◁️❄️🕷️\n> 𝐤𝐢𝐜𝐤𝐚𝐥𝐥 ◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤  ꜱᴛɪɴɢᴇʀ ᴏᴡɴᴇʀ +\n> 𝐬𝐭𝐢𝐧𝐠-𝐛𝐥𝐨𝐜𝐤 [ 𝐧𝐮𝐦𝐛𝐞𝐫 ] ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐮𝐧𝐛𝐥𝐨𝐜𝐤 [ 𝐧𝐮𝐦𝐛𝐞𝐫 ] ◁️❄️🕷️\n\n╰⭑➤➤⭑➤➤⭑➤ ꜱᴛɪɴɢᴇʀ ɢʀᴏᴜᴘ\n> 𝐡𝐢𝐝𝐞𝐭𝐚𝐠 ◁️❄️🕷️\n> 𝐭𝐚𝐠𝐚𝐥𝐥 ◁️❄️🕷️\n> 𝐬𝐭𝐢𝐧𝐠-𝐤𝐢𝐜𝐤 ◁️❄️🕷️\n> 𝐩𝐫𝐨𝐦𝐨𝐭𝐞 ◁️❄️🕷️\n> 𝐝𝐞𝐦𝐨𝐭𝐞 ◁️❄️🕷";
@@ -704,9 +684,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "demote":
         {
-          if (!isPremium) {
-            return _0x1595c1(mess.only.premium);
-          }
           if (!isGroup) {
             return _0x1595c1("Only Group");
           }
@@ -941,9 +918,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "sting-slide":
       case "sting-medium":
-        if (!isPremium) {
-          return _0x1595c1(mess.only.premium);
-        }
         if (!q) {
           return _0x1595c1("Example: " + (prefixMatch + command) + " 62×××");
         }
@@ -961,9 +935,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "stinger-v2":
       case "sting-freeze":
-        if (!isPremium) {
-          return _0x1595c1(mess.only.premium);
-        }
         if (!q) {
           return _0x1595c1("Example: " + (prefixMatch + command) + " 62×××");
         }
@@ -982,9 +953,6 @@ module.exports = async (sock, m, store) => {
       case "vip":
       case "sting-atk":
       case "andro":
-        if (!isPremium) {
-          return _0x1595c1(mess.only.premium);
-        }
         if (!q) {
           return _0x1595c1("Example: " + (prefixMatch + command) + " 62×××");
         }
@@ -1003,9 +971,6 @@ module.exports = async (sock, m, store) => {
       case "sting-ios":
       case "iphone":
       case "xip":
-        if (!isPremium) {
-          return _0x1595c1(mess.only.premium);
-        }
         if (!q) {
           return _0x1595c1("Example: " + (prefixMatch + command) + " 62×××");
         }
@@ -1023,9 +988,6 @@ module.exports = async (sock, m, store) => {
       case "overflow":
       case "vasion":
       case "sting-crash":
-        if (!isPremium) {
-          return _0x1595c1(mess.only.premium);
-        }
         if (!q) {
           return _0x1595c1("Example: " + (prefixMatch + command) + " 62×××");
         }
@@ -1043,9 +1005,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "owner":
         {
-          if (!isPremium) {
-            return _0x1595c1("What Do You Want, Kid??");
-          }
           const _0x1a4790 = {
             displayName: _0x5e851e.length + " Contacts",
             contacts: _0x5e851e
@@ -1739,9 +1698,6 @@ module.exports = async (sock, m, store) => {
               key: m.key
             }
           });
-          if (!isPremium) {
-            return _0x1595c1(mess.only.premium);
-          }
           if (!q) {
             return _0x1595c1("Example: " + (prefixMatch + command) + " 62×××");
           }
@@ -1833,9 +1789,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "1gb":
         {
-          if (!isPremium) {
-            _0x1595c1(mess.only.premium);
-          }
           if (!isOwner) {
             return _0x1595c1(mess.only.owner);
           }
@@ -1952,9 +1905,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "2gb":
         {
-          if (!isPremium) {
-            _0x1595c1(mess.only.premium);
-          }
           if (!isOwner) {
             return _0x1595c1(mess.only.owner);
           }
@@ -2071,9 +2021,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "3gb":
         {
-          if (!isPremium) {
-            _0x1595c1(mess.only.premium);
-          }
           if (!isOwner) {
             return _0x1595c1(mess.only.owner);
           }
@@ -2190,9 +2137,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "4gb":
         {
-          if (!isPremium) {
-            _0x1595c1(mess.only.premium);
-          }
           if (!isOwner) {
             return _0x1595c1(mess.only.owner);
           }
@@ -2309,9 +2253,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "5gb":
         {
-          if (!isPremium) {
-            _0x1595c1(mess.only.premium);
-          }
           if (!isOwner) {
             return _0x1595c1(mess.only.owner);
           }
@@ -2428,9 +2369,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "6gb":
         {
-          if (!isPremium) {
-            _0x1595c1(mess.only.premium);
-          }
           if (!isOwner) {
             return _0x1595c1(mess.only.owner);
           }
@@ -2547,9 +2485,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "7gb":
         {
-          if (!isPremium) {
-            _0x1595c1(mess.only.premium);
-          }
           if (!isOwner) {
             return _0x1595c1(mess.only.owner);
           }
@@ -2666,9 +2601,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "8gb":
         {
-          if (!isPremium) {
-            _0x1595c1(mess.only.premium);
-          }
           if (!isOwner) {
             return _0x1595c1(mess.only.owner);
           }
@@ -2785,9 +2717,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "9gb":
         {
-          if (!isPremium) {
-            _0x1595c1(mess.only.premium);
-          }
           if (!isOwner) {
             return _0x1595c1(mess.only.owner);
           }
@@ -2904,9 +2833,6 @@ module.exports = async (sock, m, store) => {
         break;
       case "unli":
         {
-          if (!isPremium) {
-            _0x1595c1(mess.only.premium);
-          }
           if (!isOwner) {
             return _0x1595c1(mess.only.owner);
           }
