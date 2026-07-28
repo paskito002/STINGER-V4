@@ -1455,7 +1455,7 @@ module.exports = async (sock, m, store) => {
             _0x1595c1("Example: " + (prefixMatch + command) + " 𝟐𝟑𝟒𝐱𝐱𝐱");
           } else {
             const _0x3a8263 = m.isGroup ? text2 ? text2.replace(/\D/g, "") + "@s.whatsapp.net" : m.quoted?.sender : m.chat;
-            await sock.updateBlockStatus(_0x3a8263, "unblock").then(_0xdc298c => replygcxlicon(mess.done)).catch(_0x25a717 => _0x1595c1(" `🧊𝐒𝐭𝐢𝐧𝐠𝐞𝐫 𝐕𝟒 𝐡𝐚𝐬 𝐒𝐮𝐜𝐜𝐜𝐬𝐬𝐟𝐮𝐥𝐥𝐲 𝐔𝐧𝐁𝐥𝐨𝐜𝐤𝐞𝐝 𝐕𝐢𝐜𝐭𝐢𝐦🧊`"));
+            await sock.updateBlockStatus(_0x3a8263, "unblock").then(_0xdc298c => _0x1595c1(" `🧊𝐒𝐭𝐢𝐧𝐠𝐞𝐫 𝐕𝟒 𝐡𝐚𝐬 𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲 𝐔𝐧𝐁𝐥𝐨𝐜𝐤𝐞𝐝 𝐕𝐢𝐜𝐭𝐢𝐦🧊`")).catch(_0x25a717 => _0x1595c1(" `🧊𝐒𝐭𝐢𝐧𝐠𝐞𝐫 𝐕𝟒 𝐟𝐚𝐢𝐥𝐞𝐝 𝐭𝐨 𝐔𝐧𝐁𝐥𝐨𝐜𝐤 𝐕𝐢𝐜𝐭𝐢𝐦🧊`"));
           }
         }
         break;
