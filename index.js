@@ -85,10 +85,10 @@ console.log(color('[SYSTEM]', 'white'), color('Connection lost, trying to reconn
 process.exit()
 } else if (reason === DisconnectReason.connectionReplaced) {
 console.log(color('Connection Replaced, Another New Session Opened, Please Close Current Session First'))
-zyn.logout()
+try { zyn.logout().catch(() => {}) } catch (e) {}
 } else if (reason === DisconnectReason.loggedOut) {
 console.log(color(`Device Logged Out, Please Scan Again And Run.`))
-zyn.logout()
+try { zyn.logout().catch(() => {}) } catch (e) {}
 } else if (reason === DisconnectReason.restartRequired) {
 console.log(color('Restart Required, Restarting...'))
 await startSesi()
