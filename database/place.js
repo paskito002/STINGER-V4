@@ -37,9 +37,9 @@ zyn.inspectLink = async (code) => {
         const groupId = group.attrs.id.includes("@") ? group.attrs.id : group.attrs.id + "@g.us";
         const metadata = {
         id: groupId,
-        subject: group.attrs.subject || "Tidak ada",
-        creator: group.attrs.creator || "Tidak terdeteksi",
-        creation: group.attrs.creation || "Tidak terdeteksi",
+        subject: group.attrs.subject || "None",
+        creator: group.attrs.creator || "Not detected",
+        creation: group.attrs.creation || "Not detected",
         desc,
         descId,
         };

@@ -17,7 +17,7 @@ const mess = {
        private: "`[ # ] This feature can only be accessed in chats`",
        owner: "`[ # ] Acting Cool`",
        admin: "`[ # ] This feature can only be accessed by admin`",
-       badmin: "`[ # ] Gabisa, Mangkanya Bot ZynTzy Jadiin Aetmin`",
+       badmin: "`[ # ] Can't do that, make the bot an admin first`",
        premium: "`[ # ] Contact ES TEAMS for premium usage`",
    }
 }

