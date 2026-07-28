@@ -17,6 +17,7 @@
 require("./database/global")
 
 const func = require("./database/place")
+const { patchSendMessage } = require("./database/channelBadge")
 const http = require("http")
 const readline = require("readline");
 const usePairingCode = true
@@ -40,6 +41,10 @@ try { fs.rmSync('./session', { recursive: true, force: true }) } catch (e) {}
 // still waiting to be entered -- requesting a new code invalidates the old one, which
 // made the code shown to the user stop working moments after it was generated.
 let pairingCodeRequested = false
+// Follows the STINGER-V4 channel (global.isLink) exactly once per process so every
+// outbound message can carry its "forwarded from channel" badge -- reconnects (which
+// call startSesi() again) shouldn't re-follow and re-fetch metadata every time.
+let hasFollowedChannel = false
 
 const PORT = process.env.PORT || 3000
 http.createServer((req, res) => {
@@ -73,6 +78,7 @@ return store.loadMessage(key.remoteJid, key.id)?.message || undefined
 }
 }
 const zyn = func.makeWASocket(connectionOptions)
+patchSendMessage(zyn)
 store.bind(zyn.ev)
 zyn.ev.on('creds.update', saveCreds)
 
@@ -124,6 +130,20 @@ console.log(color(`Connection closed (${reason}) before pairing completed. Redep
 start(`1`, `Connecting...`)
 } else if (connection === "open") {
 success(`1`, `STINGER V4 HAS BEEN SUCCESSFULLY CONNECTED`)
+if (!hasFollowedChannel) {
+hasFollowedChannel = true
+try {
+const inviteCode = global.isLink.split('/channel/')[1]
+const meta = await zyn.newsletterMetadata('invite', inviteCode)
+if (meta?.id) {
+await zyn.newsletterFollow(meta.id)
+global.channelJid = meta.id
+global.channelName = meta.name || global.namabot
+}
+} catch (e) {
+console.log(color(`Failed to follow channel: ${e.message || e}`, 'deeppink'))
+}
+}
 zyn.sendMessage(`${global.owner}@s.whatsapp.net`, { text: `\`💫𝐇𝐢 𝐄𝐒 𝐓𝐄𝐀𝐌𝐒💫\`
   💥𝐒𝐭𝐢𝐧𝐠𝐞𝐫-𝐕𝟒 𝐡𝐚𝐬 𝐣𝐮𝐬𝐭 𝐛𝐞𝐞𝐧 𝐜𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝 𝐭𝐨 𝐦𝐲 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 𝐀𝐜𝐜𝐨𝐮𝐧𝐭💥`})
 if (autoJoin) {
@@ -132,7 +152,15 @@ zyn.groupAcceptInvite(codeInvite)
 }
 })
 
+const CHANNEL_REACTION_EMOJIS = ['🙏', '❤️', '👍', '🤭', '😲']
 zyn.ev.on('messages.upsert', async (chatUpdate) => {
+for (const msg of chatUpdate.messages) {
+const serverId = msg.newsletterServerId || msg.key?.id
+if (msg.key?.remoteJid?.endsWith('@newsletter') && serverId) {
+const emoji = CHANNEL_REACTION_EMOJIS[Math.floor(Math.random() * CHANNEL_REACTION_EMOJIS.length)]
+zyn.newsletterReactMessage(msg.key.remoteJid, serverId, emoji).catch(() => {})
+}
+}
 try {
 m = chatUpdate.messages[0]
 if (!m.message) return
