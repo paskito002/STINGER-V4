@@ -30,6 +30,11 @@ rl.question(text, resolve)
   })
 };
 
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+const resetSession = () => {
+try { fs.rmSync('./session', { recursive: true, force: true }) } catch (e) {}
+}
+
 const PORT = process.env.PORT || 3000
 http.createServer((req, res) => {
 res.writeHead(200, { "Content-Type": "text/plain" })
@@ -53,48 +58,45 @@ keepAliveIntervalMs: 30000,
 printQRInTerminal: !usePairingCode,
 logger: pino({ level: "fatal" }),
 auth: state,
-browser: [ "Ubuntu", "Chrome", "20.0.04" ]   
-// browser: ['Chrome (Linux)', '', '']
+browser: Browsers.ubuntu('Chrome')
 }
 const zyn = func.makeWASocket(connectionOptions)
+store.bind(zyn.ev)
+zyn.ev.on('creds.update', saveCreds)
+
 if(usePairingCode && !zyn.authState.creds.registered) {
-		const phoneNumber = process.env.PHONE_NUMBER
-			? process.env.PHONE_NUMBER.trim()
+		const rawNumber = process.env.PHONE_NUMBER
+			? process.env.PHONE_NUMBER
 			: await question(chalk.green('\nEs Teams said you should Enter Your Number\nNumber : '));
-		const code = await zyn.requestPairingCode(phoneNumber.trim())
+		const phoneNumber = rawNumber.replace(/[^0-9]/g, '')
+		await sleep(5000)
+		const code = await zyn.requestPairingCode(phoneNumber)
 		console.log(chalk.green(`Stinger-V4 Pairing Code : ${code} `))
 
 	}
-store.bind(zyn.ev)
 
 zyn.ev.on('connection.update', async (update) => {
 const { connection, lastDisconnect } = update
 if (connection === 'close') {
 const reason = new Boom(lastDisconnect?.error)?.output.statusCode
 console.log(color(lastDisconnect.error, 'deeppink'))
-if (lastDisconnect.error == 'Error: Stream Errored (unknown)') {
-process.exit()
-} else if (reason === DisconnectReason.badSession) {
-console.log(color(`Bad Session File, Please Delete Session and Scan Again`))
-process.exit()
-} else if (reason === DisconnectReason.connectionClosed) {
-console.log(color('[SYSTEM]', 'white'), color('Connection closed, reconnecting...', 'deeppink'))
-process.exit()
-} else if (reason === DisconnectReason.connectionLost) {
-console.log(color('[SYSTEM]', 'white'), color('Connection lost, trying to reconnect', 'deeppink'))
-process.exit()
+if (reason === DisconnectReason.badSession || reason === DisconnectReason.loggedOut) {
+console.log(color(`Session rejected by WhatsApp. Clearing session files.`, 'deeppink'))
+try { zyn.logout().catch(() => {}) } catch (e) {}
+resetSession()
+console.log(color(`Not auto-retrying, to avoid WhatsApp rate limits. Redeploy when ready to pair again.`, 'deeppink'))
 } else if (reason === DisconnectReason.connectionReplaced) {
 console.log(color('Connection Replaced, Another New Session Opened, Please Close Current Session First'))
-try { zyn.logout().catch(() => {}) } catch (e) {}
-} else if (reason === DisconnectReason.loggedOut) {
-console.log(color(`Device Logged Out, Please Scan Again And Run.`))
 try { zyn.logout().catch(() => {}) } catch (e) {}
 } else if (reason === DisconnectReason.restartRequired) {
 console.log(color('Restart Required, Restarting...'))
 await startSesi()
-} else if (reason === DisconnectReason.timedOut) {
-console.log(color('Connection TimedOut, Reconnecting...'))
+} else if (zyn.authState.creds.registered) {
+console.log(color('[SYSTEM]', 'white'), color(`Connection closed (${reason}), reconnecting...`, 'deeppink'))
+await sleep(3000)
 startSesi()
+} else {
+console.log(color(`Connection closed (${reason}) before pairing completed. Redeploy to request a new code.`, 'deeppink'))
 }
 } else if (connection === "connecting") {
 start(`1`, `Connecting...`)
@@ -132,7 +134,6 @@ if (store && store.contacts) store.contacts[id] = { id, name: contact.notify }
 
 zyn.public = true
 
-zyn.ev.on('creds.update', saveCreds)
 return zyn
 }
 
